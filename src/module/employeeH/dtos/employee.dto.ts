@@ -10,7 +10,7 @@ export const CreateEmployeeDto = z.object({
 });
 
 // Update Employee DTO
-export const UpdateEmployeeDto = CreateEmployeeDto.partial();
+export const UpdateEmployeeDto = CreateEmployeeDto;
 
 // Types
 export type CreateEmployeeDtoType = z.infer<typeof CreateEmployeeDto>;
