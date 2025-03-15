@@ -1,0 +1,24 @@
+{
+  "name": "my-app",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify",
+    "generate:migrations": "drizzle-kit generate --config ./src/utiles/drizzle-config/drizzle.config.ts",
+    "push:migrations": "drizzle-kit push --config ./src/utiles/drizzle-config/drizzle.config.ts"
+  },
+  "dependencies": {
+    "@types/swagger-ui-express": "^4.1.8",
+    "config": "^3.3.12",
+    "drizzle-orm": "^0.40.0",
+    "hono": "^4.7.4",
+    "postgres": "^3.4.5",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250214.0",
+    "@types/node": "^22.13.10",
+    "drizzle-kit": "^0.30.5",
+    "wrangler": "^4.0.0"
+  }
+}
