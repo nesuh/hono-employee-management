@@ -4,7 +4,6 @@ import { CreateDepartmentDto, UpdateDepartmentDto } from '../dtos/Department.dto
 
 
 export class DepartmentController {
-
   public static async createDepartment(c: Context) {
     try {
       const data = await c.req.json();

@@ -1,6 +1,6 @@
-import { pgTable, uuid, varchar, text } from 'drizzle-orm/pg-core';
+import { relations } from 'drizzle-orm';
+import { pgTable, uuid, varchar, text, integer,serial } from 'drizzle-orm/pg-core';
 
-// Employees Table
 export const employees = pgTable('employees', {
   id: uuid('id').defaultRandom().primaryKey(),
   name: varchar('name', { length: 255 }).notNull(),
@@ -38,3 +38,20 @@ export const tasks = pgTable('tasks', {
   assignedTo: uuid('assigned_to').references(() => employees.id),
   projectId: uuid('project_id').references(() => projects.id),
 });
+
+
+export const positions = pgTable('positions', {
+  id: serial('id').primaryKey(),
+  name: varchar('name', { length: 255 }).notNull(), 
+  description: text('description'),
+  parentId: integer('parentId').references(() => positions.id), 
+}) as any;
+ 
+export const positionsRelations = relations(positions, ({ one, many }) => ({
+  parent: one(positions, {
+    fields: [positions.parentId],
+    references: [positions.id],
+  }),
+  children: many(positions),
+}));
+

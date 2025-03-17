@@ -9,7 +9,7 @@
   "dependencies": {
     "@types/swagger-ui-express": "^4.1.8",
     "config": "^3.3.12",
-    "drizzle-orm": "^0.40.0",
+    "drizzle-orm": "^0.40.1",
     "hono": "^4.7.4",
     "postgres": "^3.4.5",
     "swagger-jsdoc": "^6.2.8",
